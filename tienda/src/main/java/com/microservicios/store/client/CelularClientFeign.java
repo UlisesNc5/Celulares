@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.microservicios.store.modelos.Celular;
 
-@FeignClient(name = "service-celulares", url = "localhost:8081")
+@FeignClient(name = "service-celulares")
 public interface CelularClientFeign {
     @GetMapping("/list")
     public List<Celular> list();

@@ -11,11 +11,17 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "Celulares")
 public class Celular implements Serializable{
 	private static final long serialVersionID = Long.MAX_VALUE; 
+
+	@Transient
+	private Integer port;
+	public Integer getPort() { return port; }
+	public void setPort(Integer port) { this.port = port; }
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

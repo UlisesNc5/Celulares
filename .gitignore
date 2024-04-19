@@ -1,0 +1,8 @@
+.vscode
+.mvn
+*.zip
+*.png
+test.py
+*.class
+bin/
+

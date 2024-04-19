@@ -8,9 +8,12 @@ public class Celular {
     private String nombre;
     private String marca;
     private Date createdat;
+    private Integer port;
 
-    Celular() {
-    }
+    public Integer getPort() { return port; }
+    public void setPort(Integer port) { this.port = port; }
+
+    public Celular() { }
 
     public void setId(Long id) { this.id = id; }
     public Long getId() { return id; }
