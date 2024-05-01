@@ -16,3 +16,7 @@ zuul:
         celulares:
             service-id: service-celulares
             path: /api/celulares/**
+
+        usuarios:
+            service-id: service-usuarios
+            path: /api/us/**

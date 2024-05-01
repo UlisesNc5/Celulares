@@ -1,4 +1,4 @@
-package com.microservicios.usuarios.entity;
+package com.microservice.commons.users.entity;
 
 import java.io.Serializable;
 import java.util.List;
@@ -41,6 +41,12 @@ public class Usuario implements Serializable{
     public Boolean getEnabled(){ return enabled; }
 
     @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "usuarios_to_roles",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "roles_id"),
+        uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "roles_id"})}
+    )
     private List<Role> roles;
 
     public void setRoles(List<Role> roles){ this.roles = roles; }
