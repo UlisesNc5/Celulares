@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: service-usuarios
+  jpa:
+    show-sql: true
+
+server:
+  port: ${PORT:0}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+      type:
+        descriptor:
+          sql:
+            BasicBinder: TRACE
