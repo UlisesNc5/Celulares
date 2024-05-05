@@ -1,27 +1,18 @@
 spring:
   application:
     name: service-usuarios
-  jpa:
-    show-sql: true
-
 server:
-  port: ${PORT:0}
-
+  port: 8070
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
-  instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-    leaseRenewalIntervalInSeconds: 1
-    leaseExpirationDurationInSeconds: 2
-
-logging:
-  level:
-    org:
-      hibernate:
-        SQL: DEBUG
-      type:
-        descriptor:
-          sql:
-            BasicBinder: TRACE
+  # instance:
+  #   instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  #   leaseRenewalIntervalInSeconds: 1
+  #   leaseExpirationDurationInSeconds: 2
+# logging:
+#   level:
+#     org:
+#       hibernate:
+#         SQL: DEBUG

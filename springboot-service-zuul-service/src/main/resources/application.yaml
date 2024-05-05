@@ -20,3 +20,8 @@ zuul:
         usuarios:
             service-id: service-usuarios
             path: /api/us/**
+
+        servcio-oauth:
+            service-id: service-oauth
+            path: /api/security/**
+            sensitive-headers: Cookie,Set-Cookie

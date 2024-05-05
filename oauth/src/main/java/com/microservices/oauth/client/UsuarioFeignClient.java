@@ -6,10 +6,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.microservice.commons.users.entity.Usuario;
 
-@FeignClient("servicio-usuarios")
+@FeignClient(name="service-usuarios")
 public interface UsuarioFeignClient {
     @GetMapping("/usuarios/search/buscar-username")
     public Usuario findByUsername(@RequestParam String username);
-
-
 }

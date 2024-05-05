@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import com.microservice.commons.users.entity.Usuario;
 import com.microservices.oauth.client.UsuarioFeignClient;
@@ -17,7 +18,8 @@ import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class UsuarioService implements UserDetailsService{
+@Service
+public class UsuarioService implements UserDetailsService, IUsuarioService{
     private Logger log = LoggerFactory.getLogger(UsuarioService.class);
 
     @Autowired
@@ -43,5 +45,10 @@ public class UsuarioService implements UserDetailsService{
         log.info("Usuario autenticado " + username);
 
         return new User(user.getUsername(), user.getPassword(), user.getEnabled(), true, true, true, autorities);
+    }
+
+    @Override
+    public Usuario findByUsername(String username) {
+        return client.findByUsername(username);
     }
 }
